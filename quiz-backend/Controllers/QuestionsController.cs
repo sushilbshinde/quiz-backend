@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace quiz_backend.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class QuestionsController : ControllerBase
+    [Produces("application/json")]
+    [Route("api/Questions")]
+    public class QuestionsController : Controller
     {
+        [HttpPost]
+        public void Post([FromBody] Models.Question question)
+        {
+        }
     }
 }
