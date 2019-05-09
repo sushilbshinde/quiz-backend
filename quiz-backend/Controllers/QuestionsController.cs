@@ -18,10 +18,17 @@ namespace quiz_backend.Controllers
         {
             this.context = context;
         }
+
         [HttpGet]
-        public ActionResult<IEnumerable<Models.Question>> Get()
+        public IEnumerable<Models.Question> Get()
         {
             return context.Questions;
+        }
+
+        [HttpGet("{quizId}")]
+        public IEnumerable<Models.Question> Get([FromRoute] int quizId)
+        {
+            return context.Questions.Where(q => q.QuizId == quizId);
         }
 
         [HttpPost]
