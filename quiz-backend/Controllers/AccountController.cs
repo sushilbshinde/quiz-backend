@@ -47,7 +47,7 @@ namespace quiz_backend.Controllers
             return Ok(CreateToken(user));
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] Credentials credentials)
         {
             var result = await signInManager.PasswordSignInAsync(credentials.Email, credentials.Password, false, false);
